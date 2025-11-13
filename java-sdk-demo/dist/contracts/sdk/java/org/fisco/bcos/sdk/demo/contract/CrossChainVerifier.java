@@ -1,0 +1,67 @@
+package org.fisco.bcos.sdk.demo.contract;
+
+import java.util.Arrays;
+import org.fisco.bcos.sdk.abi.FunctionEncoder;
+import org.fisco.bcos.sdk.abi.TypeReference;
+import org.fisco.bcos.sdk.abi.datatypes.Address;
+import org.fisco.bcos.sdk.abi.datatypes.Bool;
+import org.fisco.bcos.sdk.abi.datatypes.Function;
+import org.fisco.bcos.sdk.abi.datatypes.Type;
+import org.fisco.bcos.sdk.client.Client;
+import org.fisco.bcos.sdk.contract.Contract;
+import org.fisco.bcos.sdk.crypto.CryptoSuite;
+import org.fisco.bcos.sdk.crypto.keypair.CryptoKeyPair;
+import org.fisco.bcos.sdk.model.CryptoType;
+import org.fisco.bcos.sdk.transaction.model.exception.ContractException;
+
+@SuppressWarnings("unchecked")
+public class CrossChainVerifier extends Contract {
+    public static final String[] BINARY_ARRAY = {"608060405234801561001057600080fd5b5060405160208061040983398101806040528101908080519060200190929190505050806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050610386806100836000396000f30060806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063577f9fb114610051578063db83645a146100a8575b600080fd5b34801561005d57600080fd5b5061006661017d565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100b457600080fd5b506101636004803603810190808035600019169060200190929190803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509192919290803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091929192905050506101a2565b604051808215151515815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16637581f92f8585856040518463ffffffff167c01000000000000000000000000000000000000000000000000000000000281526004018084600019166000191681526020018060200180602001838103835285818151815260200191508051906020019080838360005b83811015610261578082015181840152602081019050610246565b50505050905090810190601f16801561028e5780820380516001836020036101000a031916815260200191505b50838103825284818151815260200191508051906020019080838360005b838110156102c75780820151818401526020810190506102ac565b50505050905090810190601f1680156102f45780820380516001836020036101000a031916815260200191505b5095505050505050602060405180830381600087803b15801561031657600080fd5b505af115801561032a573d6000803e3d6000fd5b505050506040513d602081101561034057600080fd5b8101908080519060200190929190505050905093925050505600a165627a7a7230582008cdf260d9a658b4cf3ce6d04b18de582584c7f2d075a160f63d9fc8e3d761f10029"};
+
+    public static final String BINARY = org.fisco.bcos.sdk.utils.StringUtils.joinAll("", BINARY_ARRAY);
+
+    public static final String[] SM_BINARY_ARRAY = {"608060405234801561001057600080fd5b5060405160208061040983398101806040528101908080519060200190929190505050806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050610386806100836000396000f30060806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063c4078ac214610051578063da709b29146100a8575b600080fd5b34801561005d57600080fd5b5061006661017d565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100b457600080fd5b506101636004803603810190808035600019169060200190929190803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509192919290803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091929192905050506101a2565b604051808215151515815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663afcd821e8585856040518463ffffffff167c01000000000000000000000000000000000000000000000000000000000281526004018084600019166000191681526020018060200180602001838103835285818151815260200191508051906020019080838360005b83811015610261578082015181840152602081019050610246565b50505050905090810190601f16801561028e5780820380516001836020036101000a031916815260200191505b50838103825284818151815260200191508051906020019080838360005b838110156102c75780820151818401526020810190506102ac565b50505050905090810190601f1680156102f45780820380516001836020036101000a031916815260200191505b5095505050505050602060405180830381600087803b15801561031657600080fd5b505af115801561032a573d6000803e3d6000fd5b505050506040513d602081101561034057600080fd5b8101908080519060200190929190505050905093925050505600a165627a7a72305820118353ffcb88a15f0e0cb4f8472c23e2a1974bd9f4a14285f50f640404b272030029"};
+
+    public static final String SM_BINARY = org.fisco.bcos.sdk.utils.StringUtils.joinAll("", SM_BINARY_ARRAY);
+
+    public static final String[] ABI_ARRAY = {"[{\"constant\":true,\"inputs\":[],\"name\":\"didRegistry\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"subDIDHash\",\"type\":\"bytes32\"},{\"name\":\"signature\",\"type\":\"bytes\"},{\"name\":\"message\",\"type\":\"bytes\"}],\"name\":\"verifyCrossChain\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"name\":\"_didRegistry\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}]"};
+
+    public static final String ABI = org.fisco.bcos.sdk.utils.StringUtils.joinAll("", ABI_ARRAY);
+
+    public static final String FUNC_DIDREGISTRY = "didRegistry";
+
+    public static final String FUNC_VERIFYCROSSCHAIN = "verifyCrossChain";
+
+    protected CrossChainVerifier(String contractAddress, Client client, CryptoKeyPair credential) {
+        super(getBinary(client.getCryptoSuite()), contractAddress, client, credential);
+    }
+
+    public static String getBinary(CryptoSuite cryptoSuite) {
+        return (cryptoSuite.getCryptoTypeConfig() == CryptoType.ECDSA_TYPE ? BINARY : SM_BINARY);
+    }
+
+    public String didRegistry() throws ContractException {
+        final Function function = new Function(FUNC_DIDREGISTRY, 
+                Arrays.<Type>asList(), 
+                Arrays.<TypeReference<?>>asList(new TypeReference<Address>() {}));
+        return executeCallWithSingleValueReturn(function, String.class);
+    }
+
+    public Boolean verifyCrossChain(byte[] subDIDHash, byte[] signature, byte[] message) throws ContractException {
+        final Function function = new Function(FUNC_VERIFYCROSSCHAIN, 
+                Arrays.<Type>asList(new org.fisco.bcos.sdk.abi.datatypes.generated.Bytes32(subDIDHash), 
+                new org.fisco.bcos.sdk.abi.datatypes.DynamicBytes(signature), 
+                new org.fisco.bcos.sdk.abi.datatypes.DynamicBytes(message)), 
+                Arrays.<TypeReference<?>>asList(new TypeReference<Bool>() {}));
+        return executeCallWithSingleValueReturn(function, Boolean.class);
+    }
+
+    public static CrossChainVerifier load(String contractAddress, Client client, CryptoKeyPair credential) {
+        return new CrossChainVerifier(contractAddress, client, credential);
+    }
+
+    public static CrossChainVerifier deploy(Client client, CryptoKeyPair credential, String _didRegistry) throws ContractException {
+        String encodedConstructor = FunctionEncoder.encodeConstructor(Arrays.<Type>asList(new org.fisco.bcos.sdk.abi.datatypes.Address(_didRegistry)));
+        return deploy(CrossChainVerifier.class, client, credential, getBinary(client.getCryptoSuite()), encodedConstructor);
+    }
+}
