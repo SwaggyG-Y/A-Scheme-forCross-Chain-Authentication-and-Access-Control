@@ -1,0 +1,234 @@
+2025-07-23 14:34:04.635 [main] INFO  WeCrossRPCService() - RPCService init:Connection{server='127.0.0.1:8250', sslKey='classpath:ssl.key', sslCert='classpath:ssl.crt', caCert='classpath:ca.crt', sslSwitch=2, urlPrefix='null'}
+2025-07-23 14:34:04.810 [main] DEBUG InternalLoggerFactory() - Using SLF4J as the default logging framework
+2025-07-23 14:34:04.836 [main] DEBUG ResourceLeakDetector() - -Dio.netty.leakDetection.level: simple
+2025-07-23 14:34:04.836 [main] DEBUG ResourceLeakDetector() - -Dio.netty.leakDetection.targetRecords: 4
+2025-07-23 14:34:04.855 [main] DEBUG ResourceLeakDetectorFactory() - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@8692d67
+2025-07-23 14:34:04.889 [main] DEBUG PlatformDependent0() - -Dio.netty.noUnsafe: false
+2025-07-23 14:34:04.889 [main] DEBUG PlatformDependent0() - Java version: 11
+2025-07-23 14:34:04.900 [main] DEBUG PlatformDependent0() - sun.misc.Unsafe.theUnsafe: available
+2025-07-23 14:34:04.901 [main] DEBUG PlatformDependent0() - sun.misc.Unsafe.copyMemory: available
+2025-07-23 14:34:04.902 [main] DEBUG PlatformDependent0() - java.nio.Buffer.address: available
+2025-07-23 14:34:04.902 [main] DEBUG PlatformDependent0() - direct buffer constructor: unavailable
+java.lang.UnsupportedOperationException: Reflective setAccessible(true) disabled
+	at io.netty.util.internal.ReflectionUtil.trySetAccessible(ReflectionUtil.java:31) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.internal.PlatformDependent0$4.run(PlatformDependent0.java:238) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at io.netty.util.internal.PlatformDependent0.<clinit>(PlatformDependent0.java:232) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.internal.PlatformDependent.isAndroid(PlatformDependent.java:294) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.internal.PlatformDependent.<clinit>(PlatformDependent.java:93) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.HashedWheelTimer.<init>(HashedWheelTimer.java:109) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.HashedWheelTimer.<init>(HashedWheelTimer.java:218) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.HashedWheelTimer.<init>(HashedWheelTimer.java:197) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at org.asynchttpclient.DefaultAsyncHttpClient.newNettyTimer(DefaultAsyncHttpClient.java:111) ~[async-http-client-2.12.3.jar:?]
+	at org.asynchttpclient.DefaultAsyncHttpClient.<init>(DefaultAsyncHttpClient.java:90) ~[async-http-client-2.12.3.jar:?]
+	at org.asynchttpclient.Dsl.asyncHttpClient(Dsl.java:32) ~[async-http-client-2.12.3.jar:?]
+	at com.webank.wecrosssdk.rpc.service.WeCrossRPCService.getHttpAsyncClient(WeCrossRPCService.java:357) ~[wecross-java-sdk-1.3.0.jar:?]
+	at com.webank.wecrosssdk.rpc.service.WeCrossRPCService.init(WeCrossRPCService.java:70) ~[wecross-java-sdk-1.3.0.jar:?]
+	at com.webank.wecrosssdk.rpc.WeCrossRPCFactory.build(WeCrossRPCFactory.java:10) ~[wecross-java-sdk-1.3.0.jar:?]
+	at com.webank.wecross.console.Initializer.init(Initializer.java:34) ~[wecross-console-1.3.0.jar:?]
+	at com.webank.wecross.console.Shell.main(Shell.java:50) ~[wecross-console-1.3.0.jar:?]
+2025-07-23 14:34:04.920 [main] DEBUG PlatformDependent0() - java.nio.Bits.unaligned: available, true
+2025-07-23 14:34:04.926 [main] DEBUG PlatformDependent0() - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable
+java.lang.IllegalAccessException: class io.netty.util.internal.PlatformDependent0$6 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @2e9fda69
+	at jdk.internal.reflect.Reflection.newIllegalAccessException(Reflection.java:361) ~[?:?]
+	at java.lang.reflect.AccessibleObject.checkAccess(AccessibleObject.java:591) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:558) ~[?:?]
+	at io.netty.util.internal.PlatformDependent0$6.run(PlatformDependent0.java:352) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:?]
+	at io.netty.util.internal.PlatformDependent0.<clinit>(PlatformDependent0.java:343) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.internal.PlatformDependent.isAndroid(PlatformDependent.java:294) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.internal.PlatformDependent.<clinit>(PlatformDependent.java:93) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.HashedWheelTimer.<init>(HashedWheelTimer.java:109) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.HashedWheelTimer.<init>(HashedWheelTimer.java:218) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.HashedWheelTimer.<init>(HashedWheelTimer.java:197) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at org.asynchttpclient.DefaultAsyncHttpClient.newNettyTimer(DefaultAsyncHttpClient.java:111) ~[async-http-client-2.12.3.jar:?]
+	at org.asynchttpclient.DefaultAsyncHttpClient.<init>(DefaultAsyncHttpClient.java:90) ~[async-http-client-2.12.3.jar:?]
+	at org.asynchttpclient.Dsl.asyncHttpClient(Dsl.java:32) ~[async-http-client-2.12.3.jar:?]
+	at com.webank.wecrosssdk.rpc.service.WeCrossRPCService.getHttpAsyncClient(WeCrossRPCService.java:357) ~[wecross-java-sdk-1.3.0.jar:?]
+	at com.webank.wecrosssdk.rpc.service.WeCrossRPCService.init(WeCrossRPCService.java:70) ~[wecross-java-sdk-1.3.0.jar:?]
+	at com.webank.wecrosssdk.rpc.WeCrossRPCFactory.build(WeCrossRPCFactory.java:10) ~[wecross-java-sdk-1.3.0.jar:?]
+	at com.webank.wecross.console.Initializer.init(Initializer.java:34) ~[wecross-console-1.3.0.jar:?]
+	at com.webank.wecross.console.Shell.main(Shell.java:50) ~[wecross-console-1.3.0.jar:?]
+2025-07-23 14:34:04.927 [main] DEBUG PlatformDependent0() - java.nio.DirectByteBuffer.<init>(long, int): unavailable
+2025-07-23 14:34:04.929 [main] DEBUG PlatformDependent() - sun.misc.Unsafe: available
+2025-07-23 14:34:04.931 [main] DEBUG PlatformDependent() - maxDirectMemory: 891289600 bytes (maybe)
+2025-07-23 14:34:04.933 [main] DEBUG PlatformDependent() - -Dio.netty.tmpdir: /tmp (java.io.tmpdir)
+2025-07-23 14:34:04.934 [main] DEBUG PlatformDependent() - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+2025-07-23 14:34:04.935 [main] DEBUG PlatformDependent() - -Dio.netty.maxDirectMemory: -1 bytes
+2025-07-23 14:34:04.936 [main] DEBUG PlatformDependent() - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+2025-07-23 14:34:04.942 [main] DEBUG CleanerJava9() - java.nio.ByteBuffer.cleaner(): available
+2025-07-23 14:34:04.942 [main] DEBUG PlatformDependent() - -Dio.netty.noPreferDirect: false
+2025-07-23 14:34:04.954 [main] DEBUG PlatformDependent() - org.jctools-core.MpscChunkedArrayQueue: available
+2025-07-23 14:34:06.157 [main] DEBUG JdkSslContext() - Default protocols (JDK): [TLSv1.3, TLSv1.2] 
+2025-07-23 14:34:06.158 [main] DEBUG JdkSslContext() - Default cipher suites (JDK): [TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_AES_128_GCM_SHA256, TLS_AES_256_GCM_SHA384]
+2025-07-23 14:34:06.202 [main] DEBUG InternalThreadLocalMap() - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+2025-07-23 14:34:06.202 [main] DEBUG InternalThreadLocalMap() - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+2025-07-23 14:34:06.213 [main] DEBUG MultithreadEventLoopGroup() - -Dio.netty.eventLoopThreads: 4
+2025-07-23 14:34:06.262 [main] DEBUG NioEventLoop() - -Dio.netty.noKeySetOptimization: false
+2025-07-23 14:34:06.263 [main] DEBUG NioEventLoop() - -Dio.netty.selectorAutoRebuildThreshold: 512
+2025-07-23 14:34:06.315 [main] DEBUG PooledByteBufAllocator() - -Dio.netty.allocator.numHeapArenas: 4
+2025-07-23 14:34:06.316 [main] DEBUG PooledByteBufAllocator() - -Dio.netty.allocator.numDirectArenas: 4
+2025-07-23 14:34:06.328 [main] DEBUG PooledByteBufAllocator() - -Dio.netty.allocator.pageSize: 8192
+2025-07-23 14:34:06.328 [main] DEBUG PooledByteBufAllocator() - -Dio.netty.allocator.maxOrder: 11
+2025-07-23 14:34:06.329 [main] DEBUG PooledByteBufAllocator() - -Dio.netty.allocator.chunkSize: 16777216
+2025-07-23 14:34:06.329 [main] DEBUG PooledByteBufAllocator() - -Dio.netty.allocator.smallCacheSize: 256
+2025-07-23 14:34:06.329 [main] DEBUG PooledByteBufAllocator() - -Dio.netty.allocator.normalCacheSize: 64
+2025-07-23 14:34:06.329 [main] DEBUG PooledByteBufAllocator() - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+2025-07-23 14:34:06.329 [main] DEBUG PooledByteBufAllocator() - -Dio.netty.allocator.cacheTrimInterval: 8192
+2025-07-23 14:34:06.330 [main] DEBUG PooledByteBufAllocator() - -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+2025-07-23 14:34:06.330 [main] DEBUG PooledByteBufAllocator() - -Dio.netty.allocator.useCacheForAllThreads: true
+2025-07-23 14:34:06.330 [main] DEBUG PooledByteBufAllocator() - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+2025-07-23 14:34:06.342 [main] DEBUG ByteBufUtil() - -Dio.netty.allocator.type: pooled
+2025-07-23 14:34:06.342 [main] DEBUG ByteBufUtil() - -Dio.netty.threadLocalDirectBufferSize: 0
+2025-07-23 14:34:06.343 [main] DEBUG ByteBufUtil() - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+2025-07-23 14:34:08.558 [main] INFO  Shell() - []
+2025-07-23 14:34:24.925 [main] DEBUG WeCrossRPCService() - request: {"version":"1","data":null}; url: http://127.0.0.1:8250/auth/pub
+2025-07-23 14:34:25.030 [main] DEBUG WeCrossRPCService() - uri path: pub
+2025-07-23 14:34:25.072 [main] DEBUG AbstractByteBuf() - -Dio.netty.buffer.checkAccessible: true
+2025-07-23 14:34:25.074 [main] DEBUG AbstractByteBuf() - -Dio.netty.buffer.checkBounds: true
+2025-07-23 14:34:25.076 [main] DEBUG ResourceLeakDetectorFactory() - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@4ee6291f
+2025-07-23 14:34:25.157 [main] DEBUG DefaultChannelId() - -Dio.netty.processId: 3651313 (auto-detected)
+2025-07-23 14:34:25.161 [main] DEBUG NetUtil() - -Djava.net.preferIPv4Stack: false
+2025-07-23 14:34:25.163 [main] DEBUG NetUtil() - -Djava.net.preferIPv6Addresses: false
+2025-07-23 14:34:25.165 [main] DEBUG NetUtilInitializations() - Loopback interface: lo (lo, 0:0:0:0:0:0:0:1%lo)
+2025-07-23 14:34:25.166 [main] DEBUG NetUtil() - /proc/sys/net/core/somaxconn: 4096
+2025-07-23 14:34:25.170 [main] DEBUG DefaultChannelId() - -Dio.netty.machineId: 02:42:6f:ff:fe:bb:9c:59 (auto-detected)
+2025-07-23 14:34:25.342 [AsyncHttpClient-3-1] DEBUG NettyConnectListener() - Trying to recover from failing to connect channel [id: 0x570575e2] with a retry value of true 
+2025-07-23 14:34:25.353 [AsyncHttpClient-3-1] DEBUG NettyRequestSender() - Trying to recover request DefaultFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: UnpooledSlicedByteBuf(ridx: 0, widx: 27, cap: 27/27, unwrapped: UnpooledHeapByteBuf(ridx: 0, widx: 29, cap: 29/29)))
+GET /auth/pub HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+content-length: 27
+host: 127.0.0.1:8250
+user-agent: AHC/2.1
+
+2025-07-23 14:34:25.361 [AsyncHttpClient-3-2] DEBUG NettyConnectListener() - Trying to recover from failing to connect channel [id: 0x640380f3] with a retry value of true 
+2025-07-23 14:34:25.362 [AsyncHttpClient-3-2] DEBUG NettyRequestSender() - Trying to recover request DefaultFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: UnpooledSlicedByteBuf(ridx: 0, widx: 27, cap: 27/27, unwrapped: UnpooledHeapByteBuf(ridx: 0, widx: 29, cap: 29/29)))
+GET /auth/pub HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+content-length: 27
+host: 127.0.0.1:8250
+user-agent: AHC/2.1
+
+2025-07-23 14:34:25.365 [AsyncHttpClient-3-3] DEBUG NettyConnectListener() - Trying to recover from failing to connect channel [id: 0x41d6462e] with a retry value of true 
+2025-07-23 14:34:25.365 [AsyncHttpClient-3-3] DEBUG NettyRequestSender() - Trying to recover request DefaultFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: UnpooledSlicedByteBuf(ridx: 0, widx: 27, cap: 27/27, unwrapped: UnpooledHeapByteBuf(ridx: 0, widx: 29, cap: 29/29)))
+GET /auth/pub HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+content-length: 27
+host: 127.0.0.1:8250
+user-agent: AHC/2.1
+
+2025-07-23 14:34:25.368 [AsyncHttpClient-3-4] DEBUG NettyConnectListener() - Trying to recover from failing to connect channel [id: 0xc824ab5d] with a retry value of true 
+2025-07-23 14:34:25.368 [AsyncHttpClient-3-4] DEBUG NettyRequestSender() - Trying to recover request DefaultFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: UnpooledSlicedByteBuf(ridx: 0, widx: 27, cap: 27/27, unwrapped: UnpooledHeapByteBuf(ridx: 0, widx: 29, cap: 29/29)))
+GET /auth/pub HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+content-length: 27
+host: 127.0.0.1:8250
+user-agent: AHC/2.1
+
+2025-07-23 14:34:25.371 [AsyncHttpClient-3-1] DEBUG NettyConnectListener() - Trying to recover from failing to connect channel [id: 0x7d2999d4] with a retry value of true 
+2025-07-23 14:34:25.371 [AsyncHttpClient-3-1] DEBUG NettyRequestSender() - Trying to recover request DefaultFullHttpRequest(decodeResult: success, version: HTTP/1.1, content: UnpooledSlicedByteBuf(ridx: 0, widx: 27, cap: 27/27, unwrapped: UnpooledHeapByteBuf(ridx: 0, widx: 29, cap: 29/29)))
+GET /auth/pub HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+content-length: 27
+host: 127.0.0.1:8250
+user-agent: AHC/2.1
+
+2025-07-23 14:34:25.373 [AsyncHttpClient-3-2] DEBUG NettyConnectListener() - Trying to recover from failing to connect channel [id: 0xc7fe7c12] with a retry value of false 
+2025-07-23 14:34:25.374 [AsyncHttpClient-3-2] DEBUG NettyConnectListener() - Failed to recover from connect exception: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /127.0.0.1:8250 with channel [id: 0xc7fe7c12]
+2025-07-23 14:34:25.374 [AsyncHttpClient-3-2] WARN  WeCrossRPCService() - send onFailed: 
+com.webank.wecrosssdk.exception.WeCrossSDKException: AsyncSend exception: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /127.0.0.1:8250
+	at com.webank.wecrosssdk.rpc.service.WeCrossRPCService$2.onThrowable(WeCrossRPCService.java:277) ~[wecross-java-sdk-1.3.0.jar:?]
+	at org.asynchttpclient.netty.NettyResponseFuture.abort(NettyResponseFuture.java:277) ~[async-http-client-2.12.3.jar:?]
+	at org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:181) ~[async-http-client-2.12.3.jar:?]
+	at org.asynchttpclient.netty.channel.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:108) ~[async-http-client-2.12.3.jar:?]
+	at org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28) ~[async-http-client-2.12.3.jar:?]
+	at org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20) ~[async-http-client-2.12.3.jar:?]
+	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:578) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:571) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:550) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:491) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:616) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:609) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:117) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:321) ~[netty-transport-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:337) ~[netty-transport-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:707) ~[netty-transport-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655) ~[netty-transport-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581) ~[netty-transport-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493) ~[netty-transport-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+2025-07-23 14:34:25.375 [main] DEBUG WeCrossRPCService() - response: null
+2025-07-23 14:34:25.376 [main] ERROR WeCrossRPCService() - e: 
+com.webank.wecrosssdk.exception.WeCrossSDKException: AsyncSend exception: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /127.0.0.1:8250
+	at com.webank.wecrosssdk.rpc.service.WeCrossRPCService$2.onThrowable(WeCrossRPCService.java:277) ~[wecross-java-sdk-1.3.0.jar:?]
+	at org.asynchttpclient.netty.NettyResponseFuture.abort(NettyResponseFuture.java:277) ~[async-http-client-2.12.3.jar:?]
+	at org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:181) ~[async-http-client-2.12.3.jar:?]
+	at org.asynchttpclient.netty.channel.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:108) ~[async-http-client-2.12.3.jar:?]
+	at org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28) ~[async-http-client-2.12.3.jar:?]
+	at org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20) ~[async-http-client-2.12.3.jar:?]
+	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:578) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:571) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:550) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:491) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:616) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.concurrent.DefaultPromise.setFailure0(DefaultPromise.java:609) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:117) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.fulfillConnectPromise(AbstractNioChannel.java:321) ~[netty-transport-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:337) ~[netty-transport-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:707) ~[netty-transport-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655) ~[netty-transport-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581) ~[netty-transport-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493) ~[netty-transport-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.60.Final.jar:4.1.60.Final]
+	at java.lang.Thread.run(Thread.java:829) ~[?:?]
+2025-07-23 14:34:25.376 [main] INFO  Shell() - Exception: 
+com.webank.wecrosssdk.exception.WeCrossSDKException: http request failed, caused by: AsyncSend exception: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: /127.0.0.1:8250
+	at com.webank.wecrosssdk.rpc.service.WeCrossRPCService.send(WeCrossRPCService.java:140) ~[wecross-java-sdk-1.3.0.jar:?]
+	at com.webank.wecrosssdk.rpc.RemoteCall.send(RemoteCall.java:30) ~[wecross-java-sdk-1.3.0.jar:?]
+	at com.webank.wecrosssdk.rpc.common.RequestUtility.buildLoginParams(RequestUtility.java:20) ~[wecross-java-sdk-1.3.0.jar:?]
+	at com.webank.wecrosssdk.rpc.WeCrossRPCRest.login(WeCrossRPCRest.java:277) ~[wecross-java-sdk-1.3.0.jar:?]
+	at com.webank.wecross.console.rpc.RPCImpl.login(RPCImpl.java:314) ~[wecross-console-1.3.0.jar:?]
+	at com.webank.wecross.console.Shell.main(Shell.java:323) ~[wecross-console-1.3.0.jar:?]
+2025-07-23 14:34:25.379 [main] INFO  Shell() - []
+2025-07-23 14:34:40.352 [main] DEBUG WeCrossRPCService() - request: {"version":"1","data":null}; url: http://127.0.0.1:8250/auth/listAccount
+2025-07-23 14:34:40.353 [main] DEBUG WeCrossRPCService() - uri path: listAccount
+2025-07-23 14:34:40.353 [main] ERROR WeCrossRPCService() - Request's method required AUTH, but current credential is null.
+2025-07-23 14:34:40.354 [main] ERROR WeCrossRPCService() - Catch SDKException in asyncSend, errorMessage: Command listAccount needs Auth, please login.
+com.webank.wecrosssdk.exception.WeCrossSDKException: Command listAccount needs Auth, please login.
+	at com.webank.wecrosssdk.rpc.service.WeCrossRPCService.asyncSend(WeCrossRPCService.java:213) ~[wecross-java-sdk-1.3.0.jar:?]
+	at com.webank.wecrosssdk.rpc.service.WeCrossRPCService.send(WeCrossRPCService.java:88) ~[wecross-java-sdk-1.3.0.jar:?]
+	at com.webank.wecrosssdk.rpc.RemoteCall.send(RemoteCall.java:30) ~[wecross-java-sdk-1.3.0.jar:?]
+	at com.webank.wecross.console.rpc.RPCImpl.listAccount(RPCImpl.java:78) ~[wecross-console-1.3.0.jar:?]
+	at com.webank.wecross.console.Shell.main(Shell.java:135) ~[wecross-console-1.3.0.jar:?]
+2025-07-23 14:34:40.356 [main] WARN  WeCrossRPCService() - send onFailed: 
+com.webank.wecrosssdk.exception.WeCrossSDKException: SDKException happened in asyncSend, errorMessage:Command listAccount needs Auth, please login.
+	at com.webank.wecrosssdk.rpc.service.WeCrossRPCService.asyncSend(WeCrossRPCService.java:286) ~[wecross-java-sdk-1.3.0.jar:?]
+	at com.webank.wecrosssdk.rpc.service.WeCrossRPCService.send(WeCrossRPCService.java:88) ~[wecross-java-sdk-1.3.0.jar:?]
+	at com.webank.wecrosssdk.rpc.RemoteCall.send(RemoteCall.java:30) ~[wecross-java-sdk-1.3.0.jar:?]
+	at com.webank.wecross.console.rpc.RPCImpl.listAccount(RPCImpl.java:78) ~[wecross-console-1.3.0.jar:?]
+	at com.webank.wecross.console.Shell.main(Shell.java:135) ~[wecross-console-1.3.0.jar:?]
+2025-07-23 14:34:40.358 [main] DEBUG WeCrossRPCService() - response: null
+2025-07-23 14:34:40.358 [main] ERROR WeCrossRPCService() - e: 
+com.webank.wecrosssdk.exception.WeCrossSDKException: SDKException happened in asyncSend, errorMessage:Command listAccount needs Auth, please login.
+	at com.webank.wecrosssdk.rpc.service.WeCrossRPCService.asyncSend(WeCrossRPCService.java:286) ~[wecross-java-sdk-1.3.0.jar:?]
+	at com.webank.wecrosssdk.rpc.service.WeCrossRPCService.send(WeCrossRPCService.java:88) ~[wecross-java-sdk-1.3.0.jar:?]
+	at com.webank.wecrosssdk.rpc.RemoteCall.send(RemoteCall.java:30) ~[wecross-java-sdk-1.3.0.jar:?]
+	at com.webank.wecross.console.rpc.RPCImpl.listAccount(RPCImpl.java:78) ~[wecross-console-1.3.0.jar:?]
+	at com.webank.wecross.console.Shell.main(Shell.java:135) ~[wecross-console-1.3.0.jar:?]
+2025-07-23 14:34:40.358 [main] INFO  Shell() - Exception: 
+com.webank.wecrosssdk.exception.WeCrossSDKException: http request failed, caused by: SDKException happened in asyncSend, errorMessage:Command listAccount needs Auth, please login.
+	at com.webank.wecrosssdk.rpc.service.WeCrossRPCService.send(WeCrossRPCService.java:140) ~[wecross-java-sdk-1.3.0.jar:?]
+	at com.webank.wecrosssdk.rpc.RemoteCall.send(RemoteCall.java:30) ~[wecross-java-sdk-1.3.0.jar:?]
+	at com.webank.wecross.console.rpc.RPCImpl.listAccount(RPCImpl.java:78) ~[wecross-console-1.3.0.jar:?]
+	at com.webank.wecross.console.Shell.main(Shell.java:135) ~[wecross-console-1.3.0.jar:?]
+2025-07-23 14:34:40.361 [main] INFO  Shell() - []
